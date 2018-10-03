@@ -84,4 +84,4 @@ Contributions are very welcome. To develop, make use of the following commands (
 
 If you like the project, feel free to donate some nano:
 
-`xrb_3mrogerjhkdyj6mzf4e7aatf3xs3gp4stwc9yt9ymgasw7kr7g17t4jwwwy8`
+`chr_3mrogerjhkdyj6mzf4e7aatf3xs3gp4stwc9yt9ymgasw7kr7g17t4jwwwy8`

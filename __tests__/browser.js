@@ -13,7 +13,7 @@ let umdScript = null;
 beforeAll(async () => {
   browser = await puppeteer.launch();
   page = await browser.newPage();
-  umdScript = await readFile('./dist/nanocurrency.umd.js', 'utf8');
+  umdScript = await readFile('./dist/chratos.umd.js', 'utf8');
 });
 
 afterAll(() => browser.close());

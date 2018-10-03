@@ -18,12 +18,12 @@ export interface ParseAddressResult {
 /** @hidden */
 export function parseAddress(address: any): ParseAddressResult {
   const invalid = { valid: false, publicKeyBytes: null };
-  if (!checkString(address) || !/^(xrb_|nano_)[13][0-9a-km-uw-z]{59}$/.test(address)) {
+  if (!checkString(address) || !/^(chr_|nano_)[13][0-9a-km-uw-z]{59}$/.test(address)) {
     return invalid;
   }
 
   let prefixLength;
-  if (address.startsWith('xrb_')) {
+  if (address.startsWith('chr_')) {
     prefixLength = 4;
   } else {
     // nano_

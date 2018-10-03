@@ -3,7 +3,7 @@
 const path = require('path');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
-const nano = require('../dist/nanocurrency.cjs');
+const nano = require('../dist/chratos.cjs');
 
 const cli = async args => {
   try {
@@ -104,7 +104,7 @@ describe('check', () => {
     expect.assertions(6);
     {
       const { stdout, stderr, code } = await cli(
-        'check address --candidate xrb_114z6djfsi5657oug6pxeib9eczadnhwwaq69k44tcpjgfcgaadcusoda5xf'
+        'check address --candidate chr_114z6djfsi5657oug6pxeib9eczadnhwwaq69k44tcpjgfcgaadcusoda5xf'
       );
       expect(code).toBe(0);
       expect(stdout.trimRight()).toBe('true');
@@ -268,7 +268,7 @@ describe('derive', () => {
     );
     expect(code).toBe(0);
     expect(stdout.trimRight()).toBe(
-      'xrb_114z6djfsi5657oug6pxeib9eczadnhwwaq69k44tcpjgfcgaadcusoda5xf'
+      'chr_114z6djfsi5657oug6pxeib9eczadnhwwaq69k44tcpjgfcgaadcusoda5xf'
     );
     expect(stderr).toBe('');
   });

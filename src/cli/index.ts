@@ -1,6 +1,6 @@
 import * as yargs from 'yargs';
 
-const nanocurrency = require('../nanocurrency.cjs');
+const chratos = require('../chratos.cjs');
 
 const wrapSubcommand = (yargs: yargs.Argv) =>
   yargs
@@ -29,7 +29,7 @@ yargs
             });
           },
           argv => {
-            const valid = nanocurrency.checkSeed(argv.candidate);
+            const valid = chratos.checkSeed(argv.candidate);
             console.log(valid);
           }
         )
@@ -44,7 +44,7 @@ yargs
             });
           },
           argv => {
-            const valid = nanocurrency.checkAmount(argv.candidate);
+            const valid = chratos.checkAmount(argv.candidate);
             console.log(valid);
           }
         )
@@ -59,7 +59,7 @@ yargs
             });
           },
           argv => {
-            const valid = nanocurrency.checkHash(argv.candidate);
+            const valid = chratos.checkHash(argv.candidate);
             console.log(valid);
           }
         )
@@ -74,7 +74,7 @@ yargs
             });
           },
           argv => {
-            const valid = nanocurrency.checkKey(argv.candidate);
+            const valid = chratos.checkKey(argv.candidate);
             console.log(valid);
           }
         )
@@ -89,7 +89,7 @@ yargs
             });
           },
           argv => {
-            const valid = nanocurrency.checkAddress(argv.candidate);
+            const valid = chratos.checkAddress(argv.candidate);
             console.log(valid);
           }
         )
@@ -104,7 +104,7 @@ yargs
             });
           },
           argv => {
-            const valid = nanocurrency.checkWork(argv.candidate);
+            const valid = chratos.checkWork(argv.candidate);
             console.log(valid);
           }
         )
@@ -119,7 +119,7 @@ yargs
             });
           },
           argv => {
-            const valid = nanocurrency.checkSignature(argv.candidate);
+            const valid = chratos.checkSignature(argv.candidate);
             console.log(valid);
           }
         )
@@ -150,7 +150,7 @@ yargs
             });
         },
         async argv => {
-          const converted = await nanocurrency.convert(argv.input, {
+          const converted = await chratos.convert(argv.input, {
             from: argv.from,
             to: argv.to,
           });
@@ -172,7 +172,7 @@ yargs
           });
         },
         async argv => {
-          const work = await nanocurrency.computeWork(argv.hash);
+          const work = await chratos.computeWork(argv.hash);
           console.log(work);
         }
       )
@@ -198,7 +198,7 @@ yargs
             });
         },
         async argv => {
-          const signature = await nanocurrency.signBlock({
+          const signature = await chratos.signBlock({
             hash: argv.hash,
             secretKey: argv.secret,
           });
@@ -232,7 +232,7 @@ yargs
             });
         },
         async argv => {
-          const valid = await nanocurrency.verifyBlock({
+          const valid = await chratos.verifyBlock({
             hash: argv.hash,
             publicKey: argv.public,
             signature: argv.signature,
@@ -262,7 +262,7 @@ yargs
             });
         },
         async argv => {
-          const valid = await nanocurrency.validateWork({
+          const valid = await chratos.validateWork({
             blockHash: argv.hash,
             work: argv.work,
           });
@@ -274,7 +274,7 @@ yargs
   .command('generate', 'generate a [seed]', yargs => {
     return wrapSubcommand(
       yargs.usage('usage: $0 generate <item>').command('seed', 'generate a seed', {}, async () => {
-        const seed = await nanocurrency.generateSeed();
+        const seed = await chratos.generateSeed();
         console.log(seed);
       })
     );
@@ -302,7 +302,7 @@ yargs
               });
           },
           argv => {
-            const secretKey = nanocurrency.deriveSecretKey(argv.from, argv.index);
+            const secretKey = chratos.deriveSecretKey(argv.from, argv.index);
             console.log(secretKey);
           }
         )
@@ -317,7 +317,7 @@ yargs
             });
           },
           argv => {
-            const publicKey = nanocurrency.derivePublicKey(argv.from);
+            const publicKey = chratos.derivePublicKey(argv.from);
             console.log(publicKey);
           }
         )
@@ -332,7 +332,7 @@ yargs
             });
           },
           argv => {
-            const address = nanocurrency.deriveAddress(argv.from);
+            const address = chratos.deriveAddress(argv.from);
             console.log(address);
           }
         )
@@ -341,5 +341,5 @@ yargs
   .demandCommand(1, 'Please specify a command')
   .strict()
   .help()
-  .epilogue('for more information, find the sources at http://git.io/nanocurrency-js')
+  .epilogue('for more information, find the sources at http://git.io/chratos-js')
   .wrap(null).argv;

@@ -10,7 +10,7 @@ const ENV = process.env.NODE_ENV;
 
 const licenseBanner = `
 /*!
-* nanocurrency-js v${pkg.version}: A toolkit for the Nano cryptocurrency.
+* chratos-js v${pkg.version}: A toolkit for the Nano cryptocurrency.
 * Copyright (c) <%= moment().format('YYYY') %> Marvin ROGER <dev at marvinroger dot fr>
 * Licensed under GPL-3.0 (https://git.io/vAZsK)
 */
@@ -25,7 +25,7 @@ const config = [
     output: [
       {
         name: 'NanoCurrency',
-        file: 'dist/nanocurrency.umd.js',
+        file: 'dist/chratos.umd.js',
         format: 'umd',
         globals,
       },
@@ -36,13 +36,13 @@ const config = [
   },
   {
     input: 'src/cli/index.ts',
-    output: { file: pkg.bin.nanocurrency, format: 'cjs', banner: '#!/usr/bin/env node' },
+    output: { file: pkg.bin.chratos, format: 'cjs', banner: '#!/usr/bin/env node' },
     plugins: [resolve(), commonjs(), typescript({ useTsconfigDeclarationDir: true })],
     external(id) {
       // we'll want to embed the helpers
       if (id === 'tslib') return false;
 
-      return /^[\w-]+$/.test(id) || id === '../nanocurrency.cjs';
+      return /^[\w-]+$/.test(id) || id === '../chratos.cjs';
     },
   },
 ];

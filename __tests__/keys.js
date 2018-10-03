@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const nano = require('../dist/nanocurrency.cjs');
+const nano = require('../dist/chratos.cjs');
 const {
   INVALID_SEEDS,
   INVALID_INDEXES,
@@ -88,16 +88,7 @@ describe('addresses', () => {
     expect.assertions(VALID_KEYS.length);
     for (let key of VALID_KEYS) {
       expect(nano.deriveAddress(key.publicKey)).toBe(key.account);
-    }
-  });
-
-  test('creates correct addresses with nano prefix', () => {
-    expect.assertions(VALID_KEYS.length);
-    for (let key of VALID_KEYS) {
-      expect(nano.deriveAddress(key.publicKey, { useNanoPrefix: true })).toBe(
-        key.account.replace('xrb_', 'nano_')
-      );
-    }
+    
   });
 
   test('throws with invalid public keys', () => {

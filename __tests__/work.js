@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const nano = require('../dist/nanocurrency.cjs');
+const nano = require('../dist/chratos.cjs');
 const { INVALID_HASHES, INVALID_WORKS } = require('./data/invalid');
 
 const VALID_BLOCKS = require('./data/valid_blocks');

@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const nano = require('../dist/nanocurrency.cjs');
+const nano = require('../dist/chratos.cjs');
 const INVALID_NUMBERS = [12, '.01', '0.1.', '0..1', 'z'];
 const INVALID_UNITS = [12, '', 'nona', 'Kanano'];
 

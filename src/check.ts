@@ -121,3 +121,29 @@ export function checkWork(work: string) {
 export function checkSignature(signature: string) {
   return checkString(signature) && /^[0-9a-fA-F]{128}$/.test(signature);
 }
+
+/**
+ * Check if the given type is valid.
+ *
+ * **Note:** it only checks if the type is 'state', 'dividend' or 'claim'
+ *
+ * @param signature - The signature to check
+ * @returns Valid
+ */
+export function checkType(type: string) {
+  return type === 'state' || type === 'dividend' || type === 'claim'
+}
+
+/**
+ * Check if the given dividend is valid
+ *
+ * **Note:** it only checks the format of the dividend.
+ * It does not check whether or not the dividend does exist on the network.
+ *
+ * @param dividend - The dividend to check
+ * @returns Valid
+ *
+ */
+export function checkDividend(dividend: string) {
+  return checkSeed(dividend)
+}
