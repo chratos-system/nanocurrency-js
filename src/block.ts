@@ -131,6 +131,7 @@ function createDividendBlock(secretKey: string, data: BlockData) {
   const signature = signBlock({ hash, secretKey });
 
   const block = {
+    type: data.type,
     account,
     previous: data.previous,
     representative: data.representative,
@@ -173,6 +174,7 @@ function createClaimBlock(secretKey: string, data: BlockData) {
   const signature = signBlock({ hash, secretKey });
 
   const block = {
+    type: data.type,
     account,
     previous: data.previous,
     representative: data.representative,
