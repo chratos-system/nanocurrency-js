@@ -14,11 +14,11 @@ import { byteArrayToHex, hexToByteArray } from './utils';
 import { derivePublicKey } from './keys';
 
 const STATE_BLOCK_PREAMBLE_BYTES = new Uint8Array(32);
-STATE_BLOCK_PREAMBLE_BYTES[31] = 6;
+STATE_BLOCK_PREAMBLE_BYTES[31] = 2;
 const DIVIDEND_BLOCK_PREAMBLE_BYTES = new Uint8Array(32);
-DIVIDEND_BLOCK_PREAMBLE_BYTES[31] = 7;
+DIVIDEND_BLOCK_PREAMBLE_BYTES[31] = 3;
 const CLAIM_BLOCK_PREAMBLE_BYTES = new Uint8Array(32);
-CLAIM_BLOCK_PREAMBLE_BYTES[31] = 8;
+CLAIM_BLOCK_PREAMBLE_BYTES[31] = 4;
 
 /** Hash block parameters. */
 export interface HashBlockParams {
